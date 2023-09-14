@@ -1,10 +1,18 @@
-import logo from './logo.svg';
-import './app.css';
+
+import React from "react";
+
+import Header from "./components/Header"
+import Pages from "./pages/Pages";
+import {BrowserRouter} from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="app">
-      <h1>Recipe App</h1>
+    <div className="App">
+      <BrowserRouter>
+        <Header />
+        <Pages />
+      </BrowserRouter>
     </div>
   );
 }
