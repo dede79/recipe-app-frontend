@@ -1,11 +1,13 @@
 import React from "react";
+import Signin from "../components/auth/Signin";
 
-function UserAccount(){
+function UserAccount() {
   return (
-      <div>
-        <h1>Login or Create Account</h1>
-      </div>
-  )
+    <div>
+      <h1>Create Account</h1>
+      <Signin />
+    </div>
+  );
 }
 
 export default UserAccount;
