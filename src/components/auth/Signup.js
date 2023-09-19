@@ -6,6 +6,7 @@ import "../../styles/styles.css";
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const signUp = (e) => {
     e.preventDefault();
@@ -14,7 +15,8 @@ function Signup() {
         console.log(userCredential);
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(error.message);
+        console.error(error);
       });
   };
 
@@ -22,6 +24,7 @@ function Signup() {
     <div className="sign-up-container">
       <form onSubmit={signUp}>
         <h1>Create An Account</h1>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <input
           type="email"
           placeholder="Email"
