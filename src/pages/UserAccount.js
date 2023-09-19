@@ -5,11 +5,13 @@ import AuthDetails from "../components/auth/authDetails";
 
 function UserAccount() {
   return (
-    <div>
-      <h1>Create Account</h1>
-      <Signin />
+    <div className="user-account-container">
+      <h1>Create Account or Log In</h1>
+      <div className="auth-forms">
+        <Signin />
+        <Signup />
+      </div>
       <AuthDetails />
-      <Signup />
     </div>
   );
 }
