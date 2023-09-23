@@ -1,9 +1,12 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import { auth } from "../../firebase";
 import "../../styles/styles.css";
 
 function Signin() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -12,6 +15,7 @@ function Signin() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        navigate("/recipes");
         console.log(userCredential);
       })
       .catch((error) => {

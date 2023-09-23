@@ -18,6 +18,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+dlicious-22926-firebase-adminsdk-g417z-5fd9a52013.json
 
 npm-debug.log*
 yarn-debug.log*
