@@ -15,7 +15,7 @@ function Signin() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigate("/recipes");
+        navigate("/userrecipes");
         console.log(userCredential);
       })
       .catch((error) => {

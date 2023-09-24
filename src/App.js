@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "./firebase";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
-import Pages from "./pages/Pages";
-import UserAccount from "./pages/UserAccount";
-import { BrowserRouter } from "react-router-dom";
+import RoutesConfig from "./pages/Routes"; // Import your route configurations
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,13 +18,14 @@ function App() {
 
     return () => unsubscribe();
   }, []);
+
   return (
-    <div className="App">
-      <BrowserRouter>
+    <Router>
+      <div className="App">
         <Header />
-        <Pages />
-      </BrowserRouter>
-    </div>
+        <RoutesConfig /> {/* Use the RoutesConfig component here */}
+      </div>
+    </Router>
   );
 }
 
