@@ -45,3 +45,28 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #0056b3;
 }
+
+.recipe-field{
+  display: flex;
+}
+
+.recipe-title{
+  text-align: center;
+}
+
+a.active{
+  color: limegreen;
+}
+
+.icons {
+   padding-top:10px;
+}
+
+.splide__slide p {
+  display: flex;
+  justify-content: center;
+  min-height: 50px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+

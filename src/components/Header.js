@@ -1,4 +1,4 @@
-import {FaUser} from "react-icons/fa";
+import {FaUser, FaBookmark} from "react-icons/fa";
 import{FaHouseChimney} from "react-icons/fa6"
 import React from "react";
 import {NavLink} from "react-router-dom";
@@ -16,11 +16,14 @@ function Header(){
           <p>Home</p>
         </NavLink>
 
-          <NavLink to="/account" style={({ isActive }) => ({
-            color: isActive ? 'green' : 'black' })}>
+          <NavLink to="/account">
             <FaUser />
-            <p>Login</p>
+            <p>Logged in</p>
           </NavLink>
+        <NavLink to="/user-area">
+          <FaBookmark />
+          <p>User Area</p>
+        </NavLink>
       </div>
     </nav>
   )

@@ -19,11 +19,11 @@ const [popular, setPopular] = useState([]);
     if(storageCheck) {
       setPopular(JSON.parse(storageCheck))
     } else {
-      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=0c3d9d5486704ebd81f0faa48360e5ce&number=9`);
+      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
       const data= await api.json();
       localStorage.setItem("popular", JSON.stringify(data.recipes))
       setPopular(data.recipes);
-      console.log(popular)
+      //console.log(popular)
     }
   }
 

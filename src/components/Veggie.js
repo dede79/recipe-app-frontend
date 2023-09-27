@@ -18,11 +18,11 @@ function Veggie() {
     if(storageCheck){
       setVeggie(JSON.parse(storageCheck))
     } else {
-      const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=0c3d9d5486704ebd81f0faa48360e5ce&number=9`);
+      const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
       const data= await api.json();
       //console.log(data);
       setVeggie(data.results);
-      console.log(data.results);
+      //console.log(data.results);
     }
   }
 
