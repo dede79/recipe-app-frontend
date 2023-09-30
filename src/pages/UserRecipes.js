@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 
@@ -24,6 +25,7 @@ const UserRecipes = () => {
           ))}
         </Splide>
       </div>
+      <Link to="/add-new-recipe">Add a new recipe</Link>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Home from "./Home";
 import UserRecipes from "./UserRecipes";
 import UserAccount from "./UserAccount";
 import Signin from "../components/auth/Signin";
+import AddNewRecipe from "../components/AddNewRecipe";
 import { auth } from "../firebase";
 
 function RoutesConfig() {
@@ -19,6 +20,11 @@ function RoutesConfig() {
         element={user ? <UserRecipes /> : <Navigate to="/signin" />}
       />
       <Route path="/signin" element={user ? <Navigate to="/" /> : <Signin />} />
+      <Route
+        path="/add-new-recipe"
+        element={user ? <AddNewRecipe /> : <Navigate to="/signin" />}
+      />
+
       {/* Add more routes here */}
     </Routes>
   );
