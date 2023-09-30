@@ -15,7 +15,7 @@ const UserRecipes = () => {
         <Splide options={{ perPage: 3, gap: "1rem" }}>
           {userRecipes.map((recipe, index) => (
             <SplideSlide key={index}>
-              {/* this makes the slide clickable but doesn't lead anywhere yet 
+              {/* this makes the slide clickable but doesn't lead anywhere yet. 
               currently it links to the recipes id which might work fine, actually */}
               <a href={`/recipe/${recipe.id}`}>
                 <RecipeSlide recipe={recipe} />
