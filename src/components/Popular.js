@@ -1,8 +1,10 @@
 import {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import {Splide, SplideSlide} from "@splidejs/react-splide";
 
 import "@splidejs/splide/dist/css/splide.min.css";
+
 
 function Popular(){
 const [popular, setPopular] = useState([]);
@@ -38,12 +40,14 @@ const [popular, setPopular] = useState([]);
         }}>
           {popular.map((recipe) => {
              return (
-                 <SplideSlide key={recipe.id}>
-                 <Card>
+               <SplideSlide key={recipe.id}>
+               <Card>
+               <Link to={'/recipe/' + recipe.id}>
                   <p>{recipe.title}</p>
                   <img src={recipe.image} alt={recipe.title} />
-                </Card>
-                </SplideSlide>
+               </Link>
+              </Card>
+              </SplideSlide>
              )
           })}
          </Splide>
