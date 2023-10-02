@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "../styles/createRecipe.css";
+import React, { useState } from 'react';
+import axios from 'axios'; // Import Axios library
+import {useNavigate} from "react-router-dom"
+
 function CreateRecipe() {
   const [recipe, setRecipe] = useState({
     name: "",
@@ -10,6 +11,8 @@ function CreateRecipe() {
     ingredients: "",
     instructions: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,9 +31,13 @@ function CreateRecipe() {
     };
 
     try {
-      const response = await axios.post("http://localhost:4000/recipes", data);
 
-      console.log(response.data);
+      // Send the form data to the Express.js API
+      const response = await axios.post("http://localhost:3001/recipes", data);
+      // Handle the response, e.g., show a success message or redirect the user
+      //console.log(response.data);
+      navigate('/myrecipe/' + response.data.id);
+
     } catch (error) {
       console.error(error);
     }

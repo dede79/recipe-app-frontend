@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
 import "@splidejs/splide/dist/css/splide.min.css";
+import RecipeCard from "./RecipeCard";
 
 function Veggie() {
   const [veggie, setVeggie] = useState([]);
@@ -37,27 +38,18 @@ function Veggie() {
     <div>
       <Wrapper>
         <h3>Best Pasta Recipes:</h3>
-        <Splide
-          options={{
-            perPage: 3,
-            arrows: true,
-            pagination: false,
-          }}
-        >
-          {veggie.length > 0 ? (
-            veggie.map((recipe) => (
-              <SplideSlide key={recipe.id}>
-                <Card>
-                  <Link to={"/recipe/" + recipe.id}>
-                    <p>{recipe.title}</p>
-                    <img src={recipe.image} alt={recipe.title} />
-                  </Link>
-                </Card>
-              </SplideSlide>
-            ))
-          ) : (
-            <p>Loading...</p> // You can add a loading indicator here.
-          )}
+        <Splide options={{
+          perPage:3,
+          arrows:true,
+          pagination:false
+        }}>
+          {veggie.map((recipe) => {
+            return (
+                <SplideSlide key={recipe.id}>
+                  <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} />
+                </SplideSlide>
+            )
+          })}
         </Splide>
       </Wrapper>
     </div>
@@ -68,10 +60,5 @@ const Wrapper = styled.div`
   margin: 4rem 0rem;
 `;
 
-const Card = styled.div`
-  min-height: 25rem;
-  border-radius: 2rem;
-  overflow: hidden;
-`;
 
 export default Veggie;
