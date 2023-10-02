@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios library
+import axios from "axios";
 import "../styles/createRecipe.css";
 function CreateRecipe() {
   const [recipe, setRecipe] = useState({
@@ -28,7 +28,7 @@ function CreateRecipe() {
     };
 
     try {
-      const response = await axios.post("http://localhost:3001/recipes", data);
+      const response = await axios.post("http://localhost:4000/recipes", data);
 
       console.log(response.data);
     } catch (error) {
