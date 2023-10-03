@@ -8,7 +8,7 @@ const RecipePage = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/recipes/${recipeId}`)
+      .get(`http://localhost:3001/recipes/${recipeId}`)
       .then((response) => {
         setRecipe(response.data);
       })

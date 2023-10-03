@@ -7,7 +7,7 @@ const UserRecipes = () => {
   const [userRecipes, setUserRecipes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/recipes")
+    fetch("http://localhost:3001/recipes")
       .then((response) => response.json())
       .then((data) => setUserRecipes(data))
       .catch((error) => {

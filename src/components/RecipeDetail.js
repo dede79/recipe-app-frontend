@@ -12,7 +12,7 @@ const RecipeDetail = ({ match }) => {
   useEffect(() => {
     // Make an API request to get the recipe by ID
     axios
-      .get(`http://localhost:4000/recipes/${id}`)
+      .get(`http://localhost:3001/recipes/${id}`)
       .then((response) => {
         setRecipe(response.data);
         setLoading(false);
