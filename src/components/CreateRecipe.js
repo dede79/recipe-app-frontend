@@ -49,7 +49,7 @@ function CreateRecipe() {
       <h2 className="recipe-title">Create Recipe</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Title:</label>
+          <label>Title</label>
           <input
             type="text"
             name="name"
@@ -59,7 +59,7 @@ function CreateRecipe() {
           />
         </div>
         <div>
-          <label>Category:</label>
+          <label>Cuisine</label>
           <input
             type="text"
             name="cuisine"
@@ -69,7 +69,7 @@ function CreateRecipe() {
           />
         </div>
         <div>
-          <label>Cooking time</label>
+          <label>Cooking time (minutes)</label>
           <input
             type="number"
             name="cooking_time"
@@ -99,7 +99,7 @@ function CreateRecipe() {
           />
         </div>
         <div>
-          <label>Instructions:</label>
+          <label>Instructions</label>
           <p>Seperate each step by line</p>
           <textarea
             name="instructions"
