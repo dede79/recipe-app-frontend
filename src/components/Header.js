@@ -1,13 +1,13 @@
-import {FaUser, FaBookmark} from "react-icons/fa";
-import{FaHouseChimney} from "react-icons/fa6"
+import { FaUser, FaBookmark } from "react-icons/fa";
+import { FaHouseChimney } from "react-icons/fa6";
 import React from "react";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function Header(){
-  return(
+function Header() {
+  return (
     <nav>
       <div className="logo-img">
-        <img src={process.env.PUBLIC_URL + 'images/logo.png'} alt="logo"/>
+        <img src={process.env.PUBLIC_URL + "images/logo.png"} alt="logo" />
       </div>
 
       <div className="icons">
@@ -16,17 +16,17 @@ function Header(){
           <p>Home</p>
         </NavLink>
 
-          <NavLink to="/account">
-            <FaUser />
-            <p>Logged in</p>
-          </NavLink>
+        <NavLink to="/account">
+          <FaUser />
+          <p>Accounts</p>
+        </NavLink>
         <NavLink to="/user-area">
           <FaBookmark />
-          <p>User Area</p>
+          <p>Add New Recipe</p>
         </NavLink>
       </div>
     </nav>
-  )
+  );
 }
 
 export default Header;

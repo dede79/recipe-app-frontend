@@ -6,8 +6,8 @@ import UserRecipes from "../components/userRecipes";
 function Home() {
   return (
     <div>
-      <Popular />
       <UserRecipes />
+      <Popular />
       <Veggie />
     </div>
   );
