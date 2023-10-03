@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import "../styles/components.css";
 
 const UserRecipes = () => {
   const [userRecipes, setUserRecipes] = useState([]);
@@ -19,7 +20,9 @@ const UserRecipes = () => {
     <div className="user-recipes-container">
       <h1>Your Recipes</h1>
       <div>
-        <Splide options={{ perPage: 3, gap: "1rem" }}>
+        <Splide
+          options={{ perPage: 3, arrows: true, pagination: false, gap: "1rem" }}
+        >
           {userRecipes.map((recipe) => (
             <SplideSlide key={recipe.id}>
               <Link to={`/recipes/${recipe.id}`}>

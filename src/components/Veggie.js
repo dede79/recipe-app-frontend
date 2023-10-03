@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
 import "@splidejs/splide/dist/css/splide.min.css";
+import styled from "styled-components";
 import RecipeCard from "./RecipeCard";
+import "../styles/components.css";
 
 function Veggie() {
   const [veggie, setVeggie] = useState([]);
@@ -38,17 +39,23 @@ function Veggie() {
     <div>
       <Wrapper>
         <h3>Best Pasta Recipes:</h3>
-        <Splide options={{
-          perPage:3,
-          arrows:true,
-          pagination:false
-        }}>
+        <Splide
+          options={{
+            perPage: 3,
+            arrows: true,
+            pagination: false,
+          }}
+        >
           {veggie.map((recipe) => {
             return (
-                <SplideSlide key={recipe.id}>
-                  <RecipeCard id={recipe.id} title={recipe.title} image={recipe.image} />
-                </SplideSlide>
-            )
+              <SplideSlide key={recipe.id}>
+                <RecipeCard
+                  id={recipe.id}
+                  title={recipe.title}
+                  image={recipe.image}
+                />
+              </SplideSlide>
+            );
           })}
         </Splide>
       </Wrapper>
@@ -59,6 +66,5 @@ function Veggie() {
 const Wrapper = styled.div`
   margin: 4rem 0rem;
 `;
-
 
 export default Veggie;
