@@ -1,0 +1,44 @@
+/* RecipeDetail.css */
+
+.recipe-detail-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.recipe-info {
+  margin-bottom: 20px;
+}
+
+.recipe-info p {
+  margin: 5px 0;
+}
+
+.recipe-section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.ingredient {
+  margin-left: 20px;
+}
+
+.instruction-list p {
+  margin: 10px 0;
+}
+
+.loading-container {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 50px;
+}

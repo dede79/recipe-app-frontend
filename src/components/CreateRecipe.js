@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios library
-import {useNavigate} from "react-router-dom"
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../styles/createRecipe.css";
 
 function CreateRecipe() {
   const [recipe, setRecipe] = useState({
@@ -21,9 +22,11 @@ function CreateRecipe() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const ingredientsArray = recipe.ingredients.split(",").map((ingredient) => {
-      return ingredient.trim();
-    });
+    const ingredientsArray = recipe.ingredients
+      .split("\n")
+      .map((ingredient) => {
+        return ingredient.trim();
+      });
 
     const data = {
       ...recipe,
@@ -31,13 +34,11 @@ function CreateRecipe() {
     };
 
     try {
-
       // Send the form data to the Express.js API
       const response = await axios.post("http://localhost:3001/recipes", data);
       // Handle the response, e.g., show a success message or redirect the user
       //console.log(response.data);
-      navigate('/myrecipe/' + response.data.id);
-
+      navigate("/myrecipe/" + response.data.id);
     } catch (error) {
       console.error(error);
     }
@@ -89,6 +90,7 @@ function CreateRecipe() {
         </div>
         <div>
           <label>Ingredients</label>
+          <p>Seperate each ingredient by line</p>
           <textarea
             type="text"
             name="ingredients"
@@ -98,6 +100,7 @@ function CreateRecipe() {
         </div>
         <div>
           <label>Instructions:</label>
+          <p>Seperate each step by line</p>
           <textarea
             name="instructions"
             value={recipe.instructions}
@@ -105,7 +108,9 @@ function CreateRecipe() {
             required
           />
         </div>
-        <button type="submit">Create Recipe</button>
+        <button type="submit" className="submit-button">
+          Create Recipe
+        </button>
       </form>
     </div>
   );
