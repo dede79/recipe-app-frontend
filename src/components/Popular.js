@@ -56,19 +56,9 @@ const PopularSlide = ({ recipe }) => {
   return (
     <div className="recipe-slide">
       <h2>{recipe.title}</h2>
-      <img src={recipe.image} alt={recipe.title} />
+      <img className="popular-image" src={recipe.image} alt={recipe.title} />
     </div>
   );
 };
-
-const Wrapper = styled.div`
-  margin: 4rem 0rem;
-`;
-
-const Card = styled.div`
-  min-height: 25rem;
-  border-radius: 2rem;
-  overflow: hidden;
-`;
 
 export default Popular;
