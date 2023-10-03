@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/recipeDetail.css";
 
 const RecipeDetail = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,6 +23,18 @@ const RecipeDetail = () => {
         setLoading(false);
       });
   }, [id]);
+
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:3001/recipes/${id}`)
+      .then((response) => {
+        console.log(response);
+        navigate("/user-area");
+      })
+      .catch((error) => {
+        console.error("Error deleting recipe:", error);
+      });
+  };
 
   if (loading) {
     return <div className="loading-container">Loading...</div>;
@@ -70,6 +83,9 @@ const RecipeDetail = () => {
         <h2 className="section-title">Instructions:</h2>
         <div className="instruction-list">{instructions}</div>
       </div>
+      <button onClick={handleDelete} className="delete-button">
+        Delete Recipe
+      </button>
     </div>
   );
 };
