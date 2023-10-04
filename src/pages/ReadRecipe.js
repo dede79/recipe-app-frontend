@@ -24,7 +24,16 @@ function ReadRecipe() {
       <div>
         <h3>{details.title}</h3>
         <img src={details.image} alt={details.title} />
+        <h3>Ingredients</h3>
+        <ul>
+          {details.extendedIngredients.map((ingredient) => (
+            <li key={ingredient.id}>{ingredient.original}</li>
+          ))
+          }
+        </ul>
 
+        <h3>Instructions</h3>
+        <p dangerouslySetInnerHTML={{__html: details.instructions}}></p>
       </div>
   )
 }
