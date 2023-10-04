@@ -60,7 +60,7 @@ const FormStyle = styled.form `
   }
   button{
     position: absolute;
-    right: 0;
+    right: 30px;
     top: 60%;
     width: 20px;
     height: 10px;

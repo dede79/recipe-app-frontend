@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
-import styled from "styled-components";
 
 function ReadRecipe() {
   let params = useParams();
@@ -18,20 +17,12 @@ function ReadRecipe() {
 
   useEffect(() => {
     fetchDetails()
-  }, [params.id]);
+  }, []);
 
   return (
       <div>
         <h3>{details.title}</h3>
         <img src={details.image} alt={details.title} />
-        <h3>Ingredients</h3>
-        <ul>
-          {details.extendedIngredients.map((ingredient) => (
-            <li key={ingredient.id}>{ingredient.original}</li>
-          ))
-          }
-        </ul>
-
         <h3>Instructions</h3>
         <p dangerouslySetInnerHTML={{__html: details.instructions}}></p>
       </div>

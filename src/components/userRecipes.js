@@ -21,7 +21,16 @@ const UserRecipes = () => {
       <h1>Your Recipes</h1>
       <div>
         <Splide
-          options={{ perPage: 3, arrows: true, pagination: false, gap: "1rem" }}
+          options={{
+            perPage: 3,
+            arrows: true,
+            pagination: false,
+            gap: "1rem",
+            breakpoints: {
+              640: {
+                perPage: 2,
+              }
+            }}}
         >
           {userRecipes.map((recipe) => (
             <SplideSlide key={recipe.id}>

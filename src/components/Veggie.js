@@ -14,11 +14,8 @@ function Veggie() {
   }, []);
 
   const getVeggie = async () => {
-    const storageCheck = localStorage.getItem("veggie");
+    // const storageCheck = localStorage.getItem("veggie");
 
-    if (storageCheck) {
-      setVeggie(JSON.parse(storageCheck));
-    } else {
       try {
         const api = await fetch(
           `https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=${process.env.REACT_APP_API_KEY}&number=9`
@@ -28,11 +25,11 @@ function Veggie() {
         }
         const data = await api.json();
         setVeggie(data.results);
+        console.log(data.results)
       } catch (error) {
         console.error("Error fetching data:", error);
         // You can handle errors here, e.g., show an error message to the user.
       }
-    }
   };
 
   return (
@@ -41,9 +38,14 @@ function Veggie() {
         <h3>Best Pasta Recipes:</h3>
         <Splide
           options={{
-            perPage: 3,
+            perPage: 4,
             arrows: true,
             pagination: false,
+              breakpoints: {
+                640: {
+                  perPage: 2,
+                }
+              }
           }}
         >
           {veggie.map((recipe) => {
