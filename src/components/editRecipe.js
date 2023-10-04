@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/createRecipe.css";
 
-function CreateRecipe() {
+function EditRecipe() {
   const [recipe, setRecipe] = useState({
     name: "",
     cuisine: "",
@@ -13,7 +13,20 @@ function CreateRecipe() {
     instructions: "",
   });
 
+  const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchRecipe = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/recipes/${id}`);
+        setRecipe(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchRecipe();
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,10 +36,10 @@ function CreateRecipe() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const ingredientsArray = recipe.ingredients
-      .split("\n")
-      .map((ingredient) => {
-        return ingredient.trim();
-      });
+      ? recipe.ingredients.split("\n").map((ingredient) => {
+          return ingredient.trim();
+        })
+      : [];
 
     const data = {
       ...recipe,
@@ -34,10 +47,10 @@ function CreateRecipe() {
     };
 
     try {
-      // Send the form data to the Express.js API
-      const response = await axios.post("http://localhost:3001/recipes", data);
-      // Handle the response, e.g., show a success message or redirect the user
-      //console.log(response.data);
+      const response = await axios.patch(
+        `http://localhost:3001/recipes/${id}`,
+        data
+      );
       navigate("/recipes/" + response.data.id);
     } catch (error) {
       console.error(error);
@@ -46,7 +59,7 @@ function CreateRecipe() {
 
   return (
     <div>
-      <h2 className="recipe-title">Create Recipe</h2>
+      <h2 className="recipe-title">Edit Recipe</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title</label>
@@ -55,7 +68,6 @@ function CreateRecipe() {
             name="name"
             value={recipe.name}
             onChange={handleChange}
-            required
           />
         </div>
         <div>
@@ -65,7 +77,6 @@ function CreateRecipe() {
             name="cuisine"
             value={recipe.cuisine}
             onChange={handleChange}
-            required
           />
         </div>
         <div>
@@ -75,7 +86,6 @@ function CreateRecipe() {
             name="cooking_time"
             value={recipe.cooking_time}
             onChange={handleChange}
-            required
           />
         </div>
         <div>
@@ -85,7 +95,6 @@ function CreateRecipe() {
             name="servings"
             value={recipe.servings}
             onChange={handleChange}
-            required
           />
         </div>
         <div>
@@ -105,15 +114,14 @@ function CreateRecipe() {
             name="instructions"
             value={recipe.instructions}
             onChange={handleChange}
-            required
           />
         </div>
         <button type="submit" className="submit-button">
-          Create Recipe
+          Update Recipe
         </button>
       </form>
     </div>
   );
 }
 
-export default CreateRecipe;
+export default EditRecipe;

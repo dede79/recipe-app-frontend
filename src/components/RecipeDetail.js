@@ -37,14 +37,20 @@ const RecipeDetail = () => {
       });
   };
 
-     if(isLoading){
-      return <ClipLoader
-          loading={isLoading}
-          size={90}
-          aria-label="Loading Spinner"
-          data-testid="loader"
+  const handleEdit = () => {
+    navigate(`/edit-recipe/${id}`);
+  };
+
+  if (isLoading) {
+    return (
+      <ClipLoader
+        loading={isLoading}
+        size={90}
+        aria-label="Loading Spinner"
+        data-testid="loader"
       />
-    }
+    );
+  }
 
   if (!recipe) {
     return <div>404 Recipe not found.</div>;
@@ -91,6 +97,9 @@ const RecipeDetail = () => {
       </div>
       <button onClick={handleDelete} className="delete-button">
         Delete Recipe
+      </button>
+      <button onClick={handleEdit} className="edit-button">
+        Edit Recipe
       </button>
     </div>
   );
