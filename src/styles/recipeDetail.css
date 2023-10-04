@@ -45,7 +45,16 @@
 
 .delete-button {
   margin-top: 20px;
+  margin-right: 10px;
   background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+}
+
+.edit-button {
+  margin-top: 20px;
+  background-color: #4caf50;
   color: #fff;
   border: none;
   padding: 10px 20px;
