@@ -34,6 +34,7 @@ function MealPlanner() {
           />
           <button onClick={getMealData}>Get Daily Meal Plan</button>
         </section>
+        <p> Meals under <strong>{calories}</strong> calories:</p>
         {mealData && <MealList mealData={mealData} />}
       </div>
     </MealWrapper>
@@ -49,6 +50,7 @@ const MealWrapper = styled.div`
     text-align: center;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    max-width: 300px;
   }
 `;
 

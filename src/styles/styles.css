@@ -69,3 +69,7 @@ button[type="submit"]:hover {
   max-width: 80%;
   margin: 0 auto;
 }
+
+.meal__img-card{
+  max-width: 300px;
+}
