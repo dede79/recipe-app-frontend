@@ -1,5 +1,6 @@
 import { FaUser, FaBookmark } from "react-icons/fa";
 import { FaHouseChimney } from "react-icons/fa6";
+import { GiMeal } from "react-icons/gi";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { auth } from "../firebase";
@@ -45,6 +46,11 @@ function Header() {
         <NavLink to="/user-area">
           <FaBookmark />
           <p>Add New Recipe</p>
+        </NavLink>
+
+        <NavLink to="/meal-planner">
+          <GiMeal />
+          <p>Meal Planner</p>
         </NavLink>
       </div>
     </nav>

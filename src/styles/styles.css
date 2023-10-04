@@ -58,6 +58,10 @@ button[type="submit"]:hover {
   padding-top: 10px;
 }
 
+.icons p{
+  font-size: 0.9rem;
+}
+
 .splide__slide p {
   display: flex;
   justify-content: center;

@@ -8,6 +8,7 @@ import RecipeDetail from "../components/RecipeDetail";
 import { auth } from "../firebase";
 import ReadRecipe from "./ReadRecipe";
 import EditRecipe from "../components/editRecipe";
+import MealPlanner from "./MealPlanner";
 
 function Pages() {
   const [user, setUser] = useState(null);
@@ -53,6 +54,10 @@ function Pages() {
       <Route
         path="/edit-recipe/:id"
         element={user ? <EditRecipe /> : <UserAccount />}
+      />
+      <Route
+          path="/meal-planner/"
+          element={user ? <MealPlanner /> : <UserAccount />}
       />
     </Routes>
   );

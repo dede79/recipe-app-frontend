@@ -35,7 +35,7 @@ function Search(){
 }
 
 const FormStyle = styled.form `
-  margin: 0 20rem;
+  margin: 0 auto 4rem auto;
   position: relative;
   width: 100%;
   max-width: 350px;
