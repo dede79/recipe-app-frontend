@@ -90,7 +90,7 @@ function CreateRecipe() {
         </div>
         <div>
           <label>Ingredients</label>
-          <p>Seperate each ingredient by line</p>
+          <p>Seperate each ingredient by comma</p>
           <textarea
             type="text"
             name="ingredients"
@@ -100,7 +100,7 @@ function CreateRecipe() {
         </div>
         <div>
           <label>Instructions</label>
-          <p>Seperate each step by line</p>
+          <p>Separate each step by line</p>
           <textarea
             name="instructions"
             value={recipe.instructions}

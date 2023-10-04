@@ -21,15 +21,15 @@ function Search(){
   }
 
   return(
+
       <FormStyle onSubmit={handleSubmit}>
-        <div>
-          <FaSearch />
         <input
             onChange={handleChange}
-            type="text"
+            type="search"
+            placeholder="Type an ingredient..."
             value={input}
         />
-        </div>
+          <button type="submit" > <FaSearch /> </button>
       </FormStyle>
   )
 }
@@ -51,9 +51,22 @@ const FormStyle = styled.form `
   svg{
     position: absolute;
     top:60%;
-    left:15px;
+    right:0;
     transform: translate(100%, -50%);
     color:green;
+    cursor:pointer;
+    width:20px;
+    height:20px;
+  }
+  button{
+    position: absolute;
+    right: 0;
+    top: 60%;
+    width: 20px;
+    height: 10px;
+    color: transparent;
+    background-color: transparent;
+    border: none;
   }
 `
 export default Search;

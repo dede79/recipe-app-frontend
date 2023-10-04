@@ -15,7 +15,8 @@ h1 {
   text-align: center;
 }
 
-form {
+.sign-in-container form,
+.sign-up-container form{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +32,8 @@ input[type="text"] {
   border-radius: 5px;
 }
 
-button[type="submit"] {
+.sign-in-container button[type="submit"],
+.sign-out-container button[type="submit"]{
   width: 150px;
   padding: 15px;
   background-color: #007bff;
@@ -42,6 +44,7 @@ button[type="submit"] {
   transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
+.sign-in-container button[type="submit"]:hover,
+.sign-out-container button[type="submit"]:hover{
   background-color: #0056b3;
 }

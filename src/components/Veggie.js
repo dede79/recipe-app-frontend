@@ -49,11 +49,13 @@ function Veggie() {
           {veggie.map((recipe) => {
             return (
               <SplideSlide key={recipe.id}>
+                <Link to={"/recipe/" + recipe.id}>
                 <RecipeCard
                   id={recipe.id}
-                  title={recipe.title}
                   image={recipe.image}
+                  title={recipe.title}
                 />
+                </Link>
               </SplideSlide>
             );
           })}

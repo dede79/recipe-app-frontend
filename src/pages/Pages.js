@@ -6,6 +6,7 @@ import UserPage from "./UserPage";
 import SearchResults from "../components/SearchRecipes";
 import RecipeDetail from "../components/RecipeDetail";
 import { auth } from "../firebase";
+import ReadRecipe from "./ReadRecipe";
 
 function Pages() {
   const [user, setUser] = useState(null);
@@ -39,6 +40,14 @@ function Pages() {
       <Route
         path="/recipes/:id"
         element={user ? <RecipeDetail /> : <UserAccount />}
+      />
+      <Route
+          path="/myrecipe/:id"
+          element={user ? <RecipeDetail /> : <UserAccount />}
+      />
+      <Route
+          path="/recipe/:id"
+          element={user ? <ReadRecipe /> : <UserAccount />}
       />
     </Routes>
   );

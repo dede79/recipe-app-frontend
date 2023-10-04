@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/recipeDetail.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const RecipeDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Make an API request to get the recipe by ID
@@ -16,11 +17,11 @@ const RecipeDetail = () => {
       .then((response) => {
         console.log(response.data);
         setRecipe(response.data.recipe);
-        setLoading(false);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching recipe:", error);
-        setLoading(false);
+        setIsLoading(false);
       });
   }, [id]);
 
@@ -36,9 +37,14 @@ const RecipeDetail = () => {
       });
   };
 
-  if (loading) {
-    return <div className="loading-container">Loading...</div>;
-  }
+     if(isLoading){
+      return <ClipLoader
+          loading={isLoading}
+          size={90}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+      />
+    }
 
   if (!recipe) {
     return <div>404 Recipe not found.</div>;

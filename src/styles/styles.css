@@ -54,10 +54,6 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-a.active {
-  color: limegreen;
-}
-
 .icons {
   padding-top: 10px;
 }

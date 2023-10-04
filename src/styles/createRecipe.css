@@ -45,7 +45,7 @@ textarea:focus {
   border-color: #007bff;
 }
 
-button[type="submit"] {
+button.submit-button[type="submit"] {
   width: 100%;
   padding: 10px;
   background-color: #007bff;
@@ -58,6 +58,6 @@ button[type="submit"] {
   margin-top: 20px;
 }
 
-button[type="submit"]:hover {
+button.submit-button[type="submit"]:hover {
   background-color: #0062cc;
 }
