@@ -66,11 +66,6 @@ const RecipeDetail = () => {
     instructions,
   } = recipe;
 
-  const instructionParagraphs = instructions
-    .split(`"`)
-    .slice(1, -1)
-    .map((instruction, index) => <p key={index}>{instruction.trim()}</p>);
-
   return (
     <div className="recipe-detail-container">
       <h1 className="recipe-title">{name}</h1>
