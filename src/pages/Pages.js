@@ -48,7 +48,7 @@ function Pages() {
         element={user ? <RecipeDetail /> : <UserAccount />}
       />
       <Route
-        path="/recipe/:id"
+        path="/apirecipe/:name"
         element={user ? <ReadRecipe /> : <UserAccount />}
       />
       <Route

@@ -47,7 +47,7 @@ function Popular() {
         {popular.map((recipe) => {
           return (
             <SplideSlide key={recipe.id}>
-              <Link to={"/recipe/" + recipe.id}>
+              <Link to={"/apirecipe/" + recipe.id}>
                 <PopularSlide recipe={recipe} />
               </Link>
             </SplideSlide>
