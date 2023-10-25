@@ -1,51 +1,60 @@
-# Getting Started with Create React App
+# DLicious Recipe Storage (frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+DLicious is a recipe database that allows users to enter their own recipes for private storage and access from any web browser. Users can enter ingredients, preperation steps, cuisine, servings, etc. This was built alongside the backend as a final group project from the Command Shift March 2023 cohort.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User login and authentication** provided by Firebase Cloud.
+- **Detailed options** for user recipes including cuisine, preperation time and servings.
+- **New recipes every day** thanks to the Spoonacular API (currently bugged)
+- **Attractive and easy to use interface** for even the most tech-illiterate among us.
 
-### `npm start`
+## How to Use
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To use DLicious, clone the repo and run the development server in your local environment. To send or receive any data correctly, you'll also need to spin up the [backend repo](https://github.com/Korjubzot/recipe-app-backend).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository:
 
-### `npm test`
+   ```bash
+   git clone https://github.com/korjubzot/recipe-app-frontend.git
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
 
-### `npm run build`
+   ```bash
+   cd recipe-app-frontend
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Run the development server:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Access the app at [http://localhost:3000](http://localhost:3000).
 
-### `npm run eject`
+## Known Issues
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Firebase authentication needs to be reworked
+- Spoonacular API fails to pull data in certain environments
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## To Do
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Allow users to add recipes directly to their own database from Spoonacular API
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technologies Used
 
-## How to use this app:
+HTML, CSS, JavaScript, React, Splides
+Food Data API: Spoonacular API
+Icons: FontAwesome
 
-It uses a few npm packages below:
-- framer motion
-- react-icons
-- react-router-dom
-- styled-components
-- -React Splide
+## Licensing
 
-run `npm install` to install dependencies including the above, then `npm start`.
+This project is licensed under the MIT License. For more details, see the LICENSE file.
+
+## Contact
+
+If you have any questions, suggestions, or issues, please feel free to contact me:
+
+Email: korjubzot@gmail.com
